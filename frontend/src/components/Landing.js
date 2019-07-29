@@ -8,6 +8,7 @@ export default function Landing() {
   font-size: 2.5rem; 
   font-color: darkgray;
   margin-top: -2rem; 
+  color: #B1B1B1; 
   `
 
   const StyleForm = styled.form`
