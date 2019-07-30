@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import Landing from "./components/Landing"; 
-import styled from "styled-components"; 
+import Login from "./components/Login"; 
 
 function App() {
 
   return (
     <div className="App">
-      <Landing />
+      <Login />
     </div>
   );
 }

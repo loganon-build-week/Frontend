@@ -1,39 +1,172 @@
 import React, { useState, useEffect } from "react" 
-import axios from "axios"; 
-import logo from "../images/mockup2.png"; 
+import logo from "../images/LoganonLogoRoundLighter.png"; 
+import styled from "styled-components";
+import axios from "axios"
 
-export default function Login() {
-    const [data, setData] = useState([]); 
+function Landing() {
 
-//   useEffect(() => {
+  const StyleImg = styled.img`
+  margin: 5rem; 
+  `
+  
+  const StyleH1 = styled.h1`
+  font-size: 2.5rem; 
+  font-color: darkgray;
+  margin-top: -2rem; 
+  color: #B1B1B1; 
+  font-family: "Russo One", sans-serif; 
+  font-weight: 500; 
+  `
 
-//     axios.get('https://rapidapi.com/Privatix/api/temp-mail/details/format/json/ ')
-//     .then(response => {
-//       console.log('Success', response)
-//       setData(response.data);
-//     })
-//     .catch(error => { 
-//       console.log('Something went wrong:', error); 
-//     })  
+  // const StyleForm = styled.form`
+  // display: flex;
+  // flex-direction: column; 
+  // margin: 4rem auto; 
+  // text-align: center;   
+  // `
+  
+  // const StyleInput = styled.input`
+  //   margin-top: 2rem;
+  //   text-decoration: none; 
+  //   border-radius: 5px; 
+  //   width: 400px; 
+  //   height 30px;
+  //   margin: 0 auto;   
+  //   font-size: 1.1rem; 
+  //   border: 1px solid white; 
+  // `
+
+  const StyleButton = styled.button`
+  margin-top: rem; 
+  width: 13%; 
+  height: 30px; 
+  background: white; 
+  text-align: center; 
+  margin .5rem auto 2rem auto; 
+  border: 1px solid white; 
+  border-radius: 5px; 
+  font-weight: 600; 
+  font-size: 1rem;  
+  border: 1px solid #ffe100; 
+  `
+
+  const StyleButtonContainer = styled.div`
+  display: flex; 
+  flex-direction: column; 
+  text-align: center; 
+  margin: 0rem auto 0 auto; 
+  align-items: center; 
+  `
+
+  const StyleLogin = styled.button`
+  width: 20%; 
+  height: 30px; 
+  background: yellow; 
+  text-align: center; 
+  border: 1px solid #ffe100; 
+  border-radius: 20px; 
+  font-weight: 600; 
+  font-size: 1rem;  
+  margin-top: 2rem; 
+  `
+
+  const StyleSignup = styled.button`
+  width: 20%; 
+  height: 30px; 
+  background: white; 
+  text-align: center; 
+  border: 1px solid #ffe100; 
+  border-radius: 20px; 
+  font-weight: 600; 
+  font-size: 1rem;  
+  margin-top: 2rem;
+  `
+  const [userkey, setUserkey] = useState(""); 
+
+  useEffect(() => {
+
+    axios.get('https://cors-anywhere.herokuapp.com/https://www.random.org/clients/http/api/10')
+    .then(response => {
+      console.log('Success', response)
+      setUserkey(response.data);
+    })
+    .catch(error => { 
+      console.log('Something went wrong:', error); 
+    })  
 
     
-//   }, []) 
+  }, []) 
 
-  return (    
-   <div>
-        <img src={logo} alt="loganon logo"></img>
-        <form>
-            <input 
+  const [password, setPassword] = useState(""); 
+
+  useEffect(() => {
+
+    axios.get('https://cors-anywhere.herokuapp.com/http://www.sethcardoza.com/api/rest/tools/random_password_generator')
+    .then(response => {
+      console.log('Success', response)
+      setPassword(response.data);
+    })
+    .catch(error => { 
+      console.log('Something went wrong:', error); 
+    })  
+
+    
+  }, []) 
+
+  const  [ inputValue, setInputValue ] = useState({ userkey: "", password: "" }); 
+
+  function handleChange(event) {
+    const newInput = { ...inputValue, [event.target.name]: event.target.value }; 
+    
+    setInputValue(newInput); 
+    // console.log(document.getElementsByTagName('input'))
+  }
+
+  function generateId(event) { 
+    // window.location.reload(); 
+    event.preventDefault();
+    document.getElementById('userkey').value = userkey; 
+  }
+
+  function generatePassword(event) {
+    event.preventDefault(); 
+    // window.location.reload(); 
+    document.getElementById('password').value = password; 
+  }
+  
+
+  return (
+    <div>
+        <StyleImg src={logo} alt="loganon logo"></StyleImg>
+        <StyleH1>Care-free Account Creation</StyleH1>
+        <form className="login-form">
+          <label>
+            <input id="userkey" className="input-styles"
             placeholder="Unique User Key"
+            type="text"
             name="userkey"
+            onChange={handleChange}
+            value={inputValue.userkey}
             />
-            <button>Generate Random User Key</button>
-            <input
-            placeholder="User Email"
-            name="email"
+          </label>
+          <StyleButton onClick={generateId}>Generate</StyleButton>
+          <label>
+            <input id="password" className="input-styles"
+            placeholder="Password"
+            name="password"
+            type="password"
+            onChange={handleChange}
+            value={inputValue.password}
             />
-            <button type="submit">Submit</button>
+          </label>
+          <StyleButton onClick={generatePassword}>Generate</StyleButton>
         </form>
-    </div>
-)
-}
+        <StyleButtonContainer>
+          <StyleLogin>Login</StyleLogin>
+          <StyleSignup>Sign Up</StyleSignup>
+        </StyleButtonContainer>
+      </div>
+  )
+} 
+
+export default Landing; 

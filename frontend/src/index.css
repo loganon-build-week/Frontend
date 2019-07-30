@@ -12,3 +12,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.login-form {
+  display: flex; 
+  flex-direction: column; 
+  margin: 4rem auto; 
+  text-align: center;   
+}
+
+.input-styles {
+  margin-top: 2rem;
+  text-decoration: none; 
+  border-radius: 5px; 
+  width: 400px; 
+  height: 30px;
+  margin: 0 auto;   
+  font-size: 1.1rem; 
+  border: 1px solid white; 
+}
