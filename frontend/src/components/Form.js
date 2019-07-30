@@ -8,24 +8,35 @@ const Form = (props) => {
         Password: ""
     })
 
-    const [pw, setPw] = useState("");
+    // const [pw, setPw] = useState("");
+    // const [bool, setBool] = useState(false)
 
     useEffect(() => {
         setState(props.adjustedValue)},
         [props.adjustedValue])
-
-    const generate = useEffect(()=>{
-        axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
-        .then( pw =>{
-            console.log(pw)
-            setPw(pw.data)
-        })
-        .catch(error =>{
-            return "Error"
-        })
-    },[])
-
     
+    // useEffect(()=>{
+    //     axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
+    //     .then( pw =>{
+    //         setPw(pw.data)
+    //     })
+    //     .catch(error =>{
+    //         return "Error"
+    //     })
+    // },[])
+
+    // const generate = (action) =>{
+    //     action.preventDefault();
+    //     if (bool === true){ 
+    //         state.Password = pw;
+    //     } else{
+
+    //     }
+        
+    // }
+
+
+
     const change = (action) =>{
         setState({
             ...state, [action.target.name]: action.target.value
@@ -43,13 +54,10 @@ const Form = (props) => {
         }
     };
 
-
-
  
 
     return(
-        <form onSubmit={click}>
-
+        <form>
                 <label>Application: </label>
                 <input type="text" name="Application" value={state.Application} onChange={change}/>
                 
@@ -57,11 +65,14 @@ const Form = (props) => {
                 <button>Generate</button>
                 <input type="text" name="EmailAddress" value={state.EmailAddress} onChange={change}/>
 
-                <label>Password</label>
-                <button onSubmit={generate}>Generate</button>
-                <input type="text" name="Password" value={state.Password} onChange={change}/>
+                    <label>Password</label>
+                    <button>Generate</button>
+                    <input type="text" name="Password" value={state.Password} onChange={change}/>
 
-                <button>Save</button>
+
+                 <form onSubmit={click}>
+                     <button type="submit" >Save</button>
+                </form>
 
         </form>
     );
