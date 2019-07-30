@@ -5,13 +5,10 @@ import styled from "styled-components";
 
 function App() {
 
-  const StyleDiv = styled.div`
-  background: #3A3A3A; 
-  `
   return (
-    <StyleDiv className="App">
+    <div className="App">
       <Landing />
-    </StyleDiv>
+    </div>
   );
 }
 
