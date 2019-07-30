@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import axios from "axios";
 
 const Form = (props) => {
     const [state, setState] = useState({
@@ -8,9 +8,23 @@ const Form = (props) => {
         Password: ""
     })
 
+    const [pw, setPw] = useState("");
+
     useEffect(() => {
         setState(props.adjustedValue)},
         [props.adjustedValue])
+
+    const generate = useEffect(()=>{
+        axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
+        .then( pw =>{
+            console.log(pw)
+            setPw(pw.data)
+        })
+        .catch(error =>{
+            return "Error"
+        })
+    },[])
+
     
     const change = (action) =>{
         setState({
@@ -31,8 +45,7 @@ const Form = (props) => {
 
 
 
-
-    
+ 
 
     return(
         <form onSubmit={click}>
@@ -45,7 +58,7 @@ const Form = (props) => {
                 <input type="text" name="EmailAddress" value={state.EmailAddress} onChange={change}/>
 
                 <label>Password</label>
-                <button>Generate</button>
+                <button onSubmit={generate}>Generate</button>
                 <input type="text" name="Password" value={state.Password} onChange={change}/>
 
                 <button>Save</button>
