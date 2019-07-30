@@ -5,16 +5,17 @@ import logo from "../images/mockup2.png";
 export default function Signup() {
     const [data, setData] = useState([]); 
 
-  useEffect(() => {
+//   useEffect(() => {
 
-    axios.get('https://rapidapi.com/Privatix/api/temp-mail/details/format/json/ ')
-    .then(response => {
-      console.log('Success', response)
-      setData(response.data);
-    })
-    .catch(error => { 
-      console.log('Something went wrong:', error); 
-    })  
+//     axios.get('https://rapidapi.com/Privatix/api/temp-mail/details/format/json/ ')
+//     .then(response => {
+//       console.log('Success', response)
+//       setData(response.data);
+//     })
+//     .catch(error => { 
+//       console.log('Something went wrong:', error); 
+//     })  
 
     
-  }, []) 
+//   
+}
