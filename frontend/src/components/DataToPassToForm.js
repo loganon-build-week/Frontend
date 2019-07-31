@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Form from './Form.js';
-import App from "./ListOfApps.js";
+import Application from "./ListOfApps.js";
 
 
 const DataToPass = () =>{
@@ -27,7 +27,7 @@ const DataToPass = () =>{
 
             <h2>Saved List of Applications: </h2>
 
-            <App props={list} setAdjustedValue={setAdjustedValue} applicationToEdit={applicationToEdit} />
+            <Application props={list} setAdjustedValue={setAdjustedValue} applicationToEdit={applicationToEdit} />
 
         </div>
     );

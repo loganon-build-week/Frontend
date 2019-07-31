@@ -2,28 +2,33 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {Card, Button} from 'semantic-ui-react';
 
-const App = (props) =>{
-    console.log(props)
+// const listOfPasswords=[]
 
-    const [pw, setPw] = useState("");
+const Application = (props) =>{
 
-    useEffect(()=>{
-        axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
-        .then( pw =>{
-            setPw(pw.data)
-        })
-        .catch(error =>{
-            return "Error"
-        })
-    },[props])
-    console.log(pw)
 
-    props.props.password=pw;
+    // const [pw, setPw] = useState([]);
+
+    // useEffect(()=>{
+    //     axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator")
+    //     .then( pw =>{
+    //         console.log(pw.data)
+    //         setPw(pw.data)
+    //     })
+    //     .catch(error =>{
+    //         return "Error"
+    //     })
+    // },[props])
+
+    // listOfPasswords.push(pw)
+    // console.log(listOfPasswords)
+    // console.log(pw)
+    
 
     return (
         <div>
             {props.props.map(app =>{
-                console.log(app)
+                console.log(app.Password)
                 
                 return(
                     <Card.Group>
@@ -47,4 +52,4 @@ const App = (props) =>{
     )
 }
 
-export default App;
+export default Application;
