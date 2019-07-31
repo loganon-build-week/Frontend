@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react" 
 import logo from "../images/LoganonLogoRoundLighter.png"; 
 import styled from "styled-components";
-import axios from "axios"
+import { Route, Link } from "react-router-dom"; 
 
 function Landing() {
 
@@ -18,43 +18,19 @@ function Landing() {
   font-weight: 500; 
   `
 
-  // const StyleForm = styled.form`
-  // display: flex;
-  // flex-direction: column; 
-  // margin: 4rem auto; 
-  // text-align: center;   
-  // `
-  
-  // const StyleInput = styled.input`
-  //   margin-top: 2rem;
-  //   text-decoration: none; 
-  //   border-radius: 5px; 
-  //   width: 400px; 
-  //   height 30px;
-  //   margin: 0 auto;   
-  //   font-size: 1.1rem; 
-  //   border: 1px solid white; 
-  // `
-
-  const StyleButton = styled.button`
-  margin-top: rem; 
-  width: 13%; 
-  height: 30px; 
-  background: white; 
-  text-align: center; 
-  margin .5rem auto 2rem auto; 
-  border: 1px solid white; 
-  border-radius: 5px; 
-  font-weight: 600; 
-  font-size: 1rem;  
-  border: 1px solid #ffe100; 
+  const StyleH2 = styled.h2`
+  font-size: 2rem; 
+  font-color: darkgray; 
+  color: #B1B1B1; 
+  font-family: "Russo One", sans-serif; 
+  font-weight: 500;   
   `
 
   const StyleButtonContainer = styled.div`
   display: flex; 
   flex-direction: column; 
   text-align: center; 
-  margin: 0rem auto 0 auto; 
+  margin: -2rem auto 0 auto; 
   align-items: center; 
   `
 
@@ -73,46 +49,14 @@ function Landing() {
   const StyleSignup = styled.button`
   width: 20%; 
   height: 30px; 
-  background: white; 
+  background: #B1B1B1; 
   text-align: center; 
-  border: 1px solid #ffe100; 
+  border: 1px solid #B1B1B1; 
   border-radius: 20px; 
   font-weight: 600; 
   font-size: 1rem;  
   margin-top: 2rem;
   `
-  const [userkey, setUserkey] = useState(""); 
-
-  useEffect(() => {
-
-    axios.get('https://cors-anywhere.herokuapp.com/https://www.random.org/clients/http/api/10')
-    .then(response => {
-      console.log('Success', response)
-      setUserkey(response.data);
-    })
-    .catch(error => { 
-      console.log('Something went wrong:', error); 
-    })  
-
-    
-  }, []) 
-
-  const [password, setPassword] = useState(""); 
-
-  useEffect(() => {
-
-    axios.get('https://cors-anywhere.herokuapp.com/http://www.sethcardoza.com/api/rest/tools/random_password_generator')
-    .then(response => {
-      console.log('Success', response)
-      setPassword(response.data);
-    })
-    .catch(error => { 
-      console.log('Something went wrong:', error); 
-    })  
-
-    
-  }, []) 
-
   const  [ inputValue, setInputValue ] = useState({ userkey: "", password: "" }); 
 
   function handleChange(event) {
@@ -122,23 +66,11 @@ function Landing() {
     // console.log(document.getElementsByTagName('input'))
   }
 
-  function generateId(event) { 
-    // window.location.reload(); 
-    event.preventDefault();
-    document.getElementById('userkey').value = userkey; 
-  }
-
-  function generatePassword(event) {
-    event.preventDefault(); 
-    // window.location.reload(); 
-    document.getElementById('password').value = password; 
-  }
-  
-
   return (
     <div>
         <StyleImg src={logo} alt="loganon logo"></StyleImg>
         <StyleH1>Care-free Account Creation</StyleH1>
+        <StyleH2>Login</StyleH2>
         <form className="login-form">
           <label>
             <input id="userkey" className="input-styles"
@@ -149,7 +81,6 @@ function Landing() {
             value={inputValue.userkey}
             />
           </label>
-          <StyleButton onClick={generateId}>Generate</StyleButton>
           <label>
             <input id="password" className="input-styles"
             placeholder="Password"
@@ -159,7 +90,6 @@ function Landing() {
             value={inputValue.password}
             />
           </label>
-          <StyleButton onClick={generatePassword}>Generate</StyleButton>
         </form>
         <StyleButtonContainer>
           <StyleLogin>Login</StyleLogin>
