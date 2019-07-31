@@ -30,3 +30,7 @@ code {
   font-size: 1.1rem; 
   border: 1px solid white; 
 }
+
+#password {
+  margin-top: 30px; 
+}

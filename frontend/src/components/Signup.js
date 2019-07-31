@@ -18,6 +18,14 @@ export default function Signup() {
     font-weight: 500; 
     `
 
+    const StyleH2 = styled.h2`
+    font-size: 2rem; 
+    font-color: darkgray; 
+    color: #B1B1B1; 
+    font-family: "Russo One", sans-serif; 
+    font-weight: 500;   
+    `
+
     const StyleButton = styled.button`
     margin-top: rem; 
     width: 13%; 
@@ -36,7 +44,7 @@ export default function Signup() {
     display: flex; 
     flex-direction: column; 
     text-align: center; 
-    margin: 0rem auto 0 auto; 
+    margin: -4rem auto 0 auto; 
     align-items: center; 
     `
 
@@ -122,6 +130,7 @@ export default function Signup() {
         <div>
         <StyleImg src={logo} alt="loganon logo"></StyleImg>
         <StyleH1>Care-free Account Creation</StyleH1>
+        <StyleH2>Sign Up</StyleH2>
         <form className="login-form">
           <label>
             <input id="userkey" className="input-styles"
