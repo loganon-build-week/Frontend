@@ -31,7 +31,7 @@ const Application = (props) =>{
                 console.log(app.Password)
                 
                 return(
-                    <Card.Group>
+                    <Card.Group >
                         
                         <Card key={app.Application}>
                              <Card.Header>Application: {app.Application}</Card.Header>

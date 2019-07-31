@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 const listOfPasswords=[]
+const listOfEmails=[]
 
 const Form = (props) => {
     const [state, setState] = useState({
@@ -11,30 +12,22 @@ const Form = (props) => {
     })
 
     const [pw, setPw] = useState("");
+    const [em, setEm] =useState("");
   
 
     useEffect(() => {
         setState(props.adjustedValue)},
         [props.adjustedValue])
     
-    // useEffect(()=>{
-    //     axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
-    //     .then( pw =>{
-    //         setPw(pw.data)
-    //     })
-    //     .catch(error =>{
-    //         return "Error"
-    //     })
-    // },[])
 
 
 
-    const generate = (action) =>{
+    const generatePassword = (action) =>{
         action.preventDefault();
-        axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
+        axios.get("https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/password")
         .then( pw =>{
             // state.Password = pw.data
-            setPw(pw.data)
+            setPw(pw.data.password)
         })
         .catch(error =>{
             return "Error"
@@ -47,12 +40,29 @@ const Form = (props) => {
             state.Password=listOfPasswords[listOfPasswords.length-1]
         }
         
-        // document.getElementById('password').value=pw
-        // console.log(state.password)   
+   
     }
-    
-    
-    console.log(listOfPasswords)
+    const generateEmail = (action) =>{
+        action.preventDefault();
+        axios.get("https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/email")
+        .then( em =>{
+            console.log(em.data.email)
+            // state.Password = pw.data
+            setEm(em.data.email)
+        })
+        .catch(error =>{
+            return "Error"
+        })
+
+        listOfEmails.push(em)
+        if(state.EmailAddress === listOfEmails[listOfEmails.length-1]){
+            listOfEmails.push(state.EmailAddress)
+        }else{
+            state.EmailAddress=listOfEmails[listOfEmails.length-1]
+        }
+         
+    }
+
    
 
 
@@ -81,11 +91,11 @@ const Form = (props) => {
                 <input type="text" name="Application" value={state.Application} onChange={change}/>
                 
                 <label>Email Address</label>
-                <button>Generate</button>
+                <button onClick={generateEmail}>Generate</button>
                 <input type="text" name="EmailAddress" value={state.EmailAddress} onChange={change}/>
 
                 <label>Password</label>
-                <button onClick={generate}>Generate</button>
+                <button onClick={generatePassword}>Generate</button>
                 <input type="text" name="Password" id="password" value={state.Password} onChange={change} />
 
 
