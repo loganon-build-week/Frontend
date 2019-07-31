@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react" 
-import logo from "../images/LoganonLogoRoundLighter.png"; 
+import React, { useState, useEffect } from "react"
+import logo from "../images/LoganonLogoRoundLighter.png";
 import styled from "styled-components";
-import { Route, Link } from "react-router-dom"; 
+import { Route, Link } from "react-router-dom";
 
 function Landing() {
 
