@@ -18,36 +18,18 @@ function Landing() {
   font-weight: 500; 
   `
 
-  // const StyleForm = styled.form`
-  // display: flex;
-  // flex-direction: column; 
-  // margin: 4rem auto; 
-  // text-align: center;   
-  // `
-  
-  // const StyleInput = styled.input`
-  //   margin-top: 2rem;
-  //   text-decoration: none; 
-  //   border-radius: 5px; 
-  //   width: 400px; 
-  //   height 30px;
-  //   margin: 0 auto;   
-  //   font-size: 1.1rem; 
-  //   border: 1px solid white; 
-  // `
-
   const StyleButton = styled.button`
   margin-top: rem; 
   width: 13%; 
   height: 30px; 
-  background: white; 
+  background: #B1B1B1; 
   text-align: center; 
   margin .5rem auto 2rem auto; 
   border: 1px solid white; 
   border-radius: 5px; 
   font-weight: 600; 
   font-size: 1rem;  
-  border: 1px solid #ffe100; 
+  border: 1px solid #B1B1B1; 
   `
 
   const StyleButtonContainer = styled.div`
@@ -73,9 +55,9 @@ function Landing() {
   const StyleSignup = styled.button`
   width: 20%; 
   height: 30px; 
-  background: white; 
+  background: #B1B1B1; 
   text-align: center; 
-  border: 1px solid #ffe100; 
+  border: 1px solid #B1B1B1; 
   border-radius: 20px; 
   font-weight: 600; 
   font-size: 1rem;  
@@ -85,7 +67,7 @@ function Landing() {
 
   useEffect(() => {
 
-    axios.get('https://cors-anywhere.herokuapp.com/https://www.random.org/clients/http/api/10')
+    axios.get('https://cors-anywhere.herokuapp.com/http://www.sethcardoza.com/api/rest/tools/random_password_generator')
     .then(response => {
       console.log('Success', response)
       setUserkey(response.data);
