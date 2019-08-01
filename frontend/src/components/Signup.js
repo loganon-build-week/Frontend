@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"; 
 import logo from "../images/LoganonLogoRoundLighter.png"; 
 import styled from "styled-components"; 
+<<<<<<< HEAD
 import {Link } from "react-router-dom"; 
+=======
+import { Link } from "react-router-dom"; 
+>>>>>>> origin/master
 
 export default function Signup() {
 
@@ -28,7 +32,7 @@ export default function Signup() {
     `
 
     const StyleButton = styled.button`
-    margin-top: rem; 
+    margin-top: 0rem; 
     width: 13%; 
     height: 30px; 
     background: #B1B1B1; 
@@ -49,24 +53,24 @@ export default function Signup() {
     align-items: center; 
     `
 
-    const StyleLogin = styled.button`
-    width: 20%; 
-    height: 30px; 
-    background: yellow; 
-    text-align: center; 
-    border: 1px solid #ffe100; 
-    border-radius: 20px; 
-    font-weight: 600; 
-    font-size: 1rem;  
-    margin-top: 2rem; 
-    `
+    // const StyleLogin = styled.button`
+    // width: 20%; 
+    // height: 30px; 
+    // background: yellow; 
+    // text-align: center; 
+    // border: 1px solid #ffe100; 
+    // border-radius: 20px; 
+    // font-weight: 600; 
+    // font-size: 1rem;  
+    // margin-top: 2rem; 
+    // `
 
     const StyleSignup = styled.button`
     width: 220px; 
     height: 30px; 
     background: #ffe100; 
     text-align: center; 
-    border: 1px solid #B1B1B1; 
+    border: 1px solid #ffe100; 
     border-radius: 20px; 
     font-weight: 600; 
     font-size: 1rem;  
@@ -130,7 +134,7 @@ export default function Signup() {
       return (
         <div>
         <StyleImg src={logo} alt="loganon logo"></StyleImg>
-        <StyleH1>Care-free Account Creation</StyleH1>
+        <StyleH1>Carefree Account Creation</StyleH1>
         <StyleH2>Sign Up</StyleH2>
         <form className="login-form">
           <label>
@@ -138,24 +142,24 @@ export default function Signup() {
             placeholder="Unique User Key"
             type="text"
             name="userkey"
-            onChange={handleChange}
+            onChange={handleChange} 
             value={inputValue.userkey}
             />
           </label>
           <StyleButton onClick={generateId}>Generate</StyleButton>
-          <label>
+          <label> 
             <input id="password" className="input-styles"
             placeholder="Password"
             name="password"
             type="password"
-            onChange={handleChange}
+            onChange={handleChange} 
             value={inputValue.password}
             />
           </label>
           <StyleButton onClick={generatePassword}>Generate</StyleButton>
         </form>
         <StyleButtonContainer>
-        <Link to="/home"><StyleSignup>Sign Up</StyleSignup></Link>
+          <Link to="/home"><StyleSignup>Sign Up</StyleSignup></Link>
         </StyleButtonContainer>
       </div>
       )
