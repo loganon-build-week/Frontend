@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"; 
 import logo from "../images/LoganonLogoRoundLighter.png"; 
 import styled from "styled-components"; 
+import {Link } from "react-router-dom"; 
 
 export default function Signup() {
 
@@ -61,9 +62,9 @@ export default function Signup() {
     `
 
     const StyleSignup = styled.button`
-    width: 20%; 
+    width: 220px; 
     height: 30px; 
-    background: #B1B1B1; 
+    background: #ffe100; 
     text-align: center; 
     border: 1px solid #B1B1B1; 
     border-radius: 20px; 
@@ -154,8 +155,7 @@ export default function Signup() {
           <StyleButton onClick={generatePassword}>Generate</StyleButton>
         </form>
         <StyleButtonContainer>
-          <StyleLogin>Login</StyleLogin>
-          <StyleSignup>Sign Up</StyleSignup>
+        <Link to="/home"><StyleSignup>Sign Up</StyleSignup></Link>
         </StyleButtonContainer>
       </div>
       )
