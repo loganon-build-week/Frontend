@@ -11,8 +11,8 @@ const Application = (props) =>{
 
         // text-align: center; 
         //  
-    const StyleCard = styled.button`
-    width: 20%; 
+    const StyleCard = styled.div`
+    width: 25%; 
     height: 30%; 
     background: white; 
     color: black;
@@ -21,9 +21,8 @@ const Application = (props) =>{
     text-align: left;
     font-weight: 600; 
     font-size: 1rem; 
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-top: 2rem;
- 
 
     `
     const StyleAnswer = styled.p`
@@ -36,39 +35,39 @@ const Application = (props) =>{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 
     `
 
     return (
-        <div>
+        <StyleFlex>
             {props.props.map(app =>{
                 console.log(app.Password)
                 
                 return(
                     <StyleCard /*onClick={}*/>
-                    <StyleFlex>
-                        <Card.Group>
+                        
+                            <Card.Group>
 
-                            <Card key={app.Application}>
-                                <Card.Header>Application: <StyleAnswer>{app.Application}</StyleAnswer></Card.Header>
-                                <Card.Content>Email Address: <StyleAnswer>{app.EmailAddress}</StyleAnswer></Card.Content> 
-                                <Card.Content>Password: <StyleAnswer>{app.Password}</StyleAnswer> </Card.Content> 
-                                <Button type="submit" onClick={() =>{
-                                    props.setAdjustedValue(app);
-                                    props.applicationToEdit(true)
-                                }}>Edit</Button>
-                            </Card>
+                                <Card key={app.Application}>
+                                    <Card.Header>Application: <StyleAnswer>{app.Application}</StyleAnswer></Card.Header>
+                                    <Card.Content>Email Address: <StyleAnswer>{app.EmailAddress}</StyleAnswer></Card.Content> 
+                                    <Card.Content>Password: <StyleAnswer>{app.Password}</StyleAnswer> </Card.Content> 
+                                    <Button type="submit" onClick={() =>{
+                                        props.setAdjustedValue(app);
+                                        props.applicationToEdit(true)
+                                    }}>Edit</Button>
+                                </Card>
 
 
 
-                        </Card.Group>
-                    </StyleFlex>
-
+                            </Card.Group>
+                        
                     </StyleCard>
                 )
 
             })}
-        </div>
+        </StyleFlex>
     )
 }
 
