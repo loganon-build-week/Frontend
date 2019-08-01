@@ -137,7 +137,7 @@ export default function Signup() {
             placeholder="Unique User Key"
             type="text"
             name="userkey"
-            onChange={handleChange}
+            onChange={handleChange} 
             value={inputValue.userkey}
             />
           </label>
@@ -147,7 +147,7 @@ export default function Signup() {
             placeholder="Password"
             name="password"
             type="password"
-            onChange={handleChange}
+            onChange={handleChange} 
             value={inputValue.password}
             />
           </label>
