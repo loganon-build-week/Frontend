@@ -142,7 +142,7 @@ export default function Signup() {
             />
           </label>
           <StyleButton onClick={generateId}>Generate</StyleButton>
-          <label>
+          <label> 
             <input id="password" className="input-styles"
             placeholder="Password"
             name="password"
