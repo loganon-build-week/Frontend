@@ -70,7 +70,7 @@ function Landing() {
   return (
     <div>
         <StyleImg src={logo} alt="loganon logo"></StyleImg>
-        <StyleH1>Care-free Account Creation</StyleH1>
+        <StyleH1>Carefree Account Creation</StyleH1>
         <StyleH2>Login</StyleH2>
         <form className="login-form">
           <label>
