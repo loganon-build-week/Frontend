@@ -5,8 +5,7 @@ import MainForm from './components/MainForm.js';
 import AppCard from './components/AppCard'
 import DataToPass from './components/DataToPassToForm';
 
-// import DataToPass from "./Components/DataToPassToForm.js";
-import Login from "./components/Login";
+import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";  
 
 
@@ -29,6 +28,7 @@ function App() {
       {/* <MainForm submitUser={addAppCard} /> 
       {users.map(person => <AppCard person={person} />)} */}
     </div>
+  
   );
 
 

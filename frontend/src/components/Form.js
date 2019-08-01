@@ -13,6 +13,7 @@ const Form = (props) => {
         Password: ""
     })
 
+    console.log(listOfEmails)
 
     const [pw, setPw] = useState("Press Button Again");
     const [em, setEm] =useState("Press Button Again");
