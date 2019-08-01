@@ -4,8 +4,8 @@ import MainForm from './components/MainForm.js';
 import AppCard from './components/AppCard'
 
 // import DataToPass from "./Components/DataToPassToForm.js";
-// import Login from "./components/Login"; 
-// import Signup from "./components/Signup"; 
+import Login from "./components/Login"; 
+import Signup from "./components/Signup"; 
 // import { Route, Link } from "react-router-dom"; 
 
 
