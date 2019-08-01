@@ -73,22 +73,24 @@ function Landing() {
         <StyleH1>Carefree Account Creation</StyleH1>
         <StyleH2>Login</StyleH2>
         <form className="login-form">
-          <label>
+        <label className="top-label">
+            Unique User Key:<br></br>
             <input id="userkey" className="input-styles"
-            placeholder="Unique User Key"
+            placeholder='Unique User Key'
             type="text"
             name="userkey"
-            onChange={handleChange}
+            onChange={handleChange} 
             value={inputValue.userkey}
             />
           </label>
-          <label>
+          <label className="top-label">
+            Password:<br></br>
             <input id="password" className="input-styles"
-            placeholder="Password"
+            placeholder='Password'
             name="password"
-            type="password"
-            onChange={handleChange}
+            onChange={handleChange} 
             value={inputValue.password}
+            type="password"
             />
           </label>
         </form>

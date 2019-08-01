@@ -149,7 +149,7 @@ export default function Signup() {
           <label className="top-label">
             Unique User Key:<br></br>
             <input id="userkey" className="input-styles"
-            placeholder="Unique User Key"
+            placeholder='Input or click "Generate"'
             type="text"
             name="userkey"
             onChange={handleChange} 
@@ -160,7 +160,7 @@ export default function Signup() {
           <label className="top-label">
             Password:<br></br>
             <input id="password" className="input-styles"
-            placeholder="Password"
+            placeholder='Input or click "Generate"'
             name="password"
             onChange={handleChange} 
             value={inputValue.password}
