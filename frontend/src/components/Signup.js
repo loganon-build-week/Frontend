@@ -92,7 +92,7 @@ export default function Signup() {
 
   useEffect(() => {
 
-    axios.get('https://cors-anywhere.herokuapp.com/http://www.sethcardoza.com/api/rest/tools/random_password_generator')
+    axios.get('https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/password')
     .then(response => {
       console.log('Success', response)
       setPassword(response.data);
