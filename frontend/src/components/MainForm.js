@@ -2,8 +2,8 @@ import React, { useState } from "react"
 
 const MainForm = (props) => {
   // console.log(props)
-  const { submitUser } = props 
-  const [person, setPerson] = useState({id: Date.now(), email: "", password: "", application: "" });
+  const { submitUser, applicationCard } = props 
+  const [person, setPerson] = useState(applicationCard || {id: Date.now(), email: "", password: "", application: "" });
 
   const changeHandler = (event) => {
     setPerson({...person, [event.target.name]: event.target.value})
@@ -31,7 +31,7 @@ const MainForm = (props) => {
         <option value={false} >Other</option>
       </select>
 
-      <button type="button">Email</button>
+      <button type="button" onClick={props.email} >Email</button>
       <input 
         placeholder="generated email" 
         type="email"
