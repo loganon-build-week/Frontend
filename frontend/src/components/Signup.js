@@ -96,7 +96,7 @@ export default function Signup() {
     axios.get('https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/password')
     .then(response => {
       console.log('Success', response)
-      setPassword(response.data);
+      setPassword(response.data.password);
     })
     .catch(error => { 
       console.log('Something went wrong:', error); 
@@ -114,18 +114,31 @@ export default function Signup() {
     // console.log(document.getElementsByTagName('input'))
   }
 
+  // const state = useState({ password: '', confirmPassword: '' })
 
-    function generateId(event) { 
-        // window.location.reload(); 
-        event.preventDefault();
-        document.getElementById('userkey').value = userkey; 
-      }
-    
-      function generatePassword(event) {
-        event.preventDefault(); 
-        // window.location.reload(); 
-        document.getElementById('password').value = password; 
-      }
+  // function handleSubmit() {
+  //   const { password, confirmPassword } = state;
+
+  //   if (password !== confirmPassword) {
+  //       alert("Passwords don't match");
+  //   } else {
+  //     document.location.href = `http://localhost:3000/signup`
+  //   }
+  // }
+
+
+  function generateId(event) { 
+      // window.location.reload(); 
+      event.preventDefault();
+      document.getElementById('userkey').value = Date.now(); 
+    }
+  
+    function generatePassword(event) {
+      event.preventDefault(); 
+      // window.location.reload(); 
+      document.getElementById('password').value = password;
+      document.getElementById('confirm-password').value = password;  
+    }
 
       return (
         <div>
@@ -133,7 +146,8 @@ export default function Signup() {
         <StyleH1>Carefree Account Creation</StyleH1>
         <StyleH2>Sign Up</StyleH2>
         <form className="login-form">
-          <label>
+          <label className="top-label">
+            Unique User Key:<br></br>
             <input id="userkey" className="input-styles"
             placeholder="Unique User Key"
             type="text"
@@ -143,16 +157,24 @@ export default function Signup() {
             />
           </label>
           <StyleButton onClick={generateId}>Generate</StyleButton>
-          <label> 
+          <label className="top-label">
+            Password:<br></br>
             <input id="password" className="input-styles"
             placeholder="Password"
             name="password"
-            type="password"
             onChange={handleChange} 
             value={inputValue.password}
             />
           </label>
           <StyleButton onClick={generatePassword}>Generate</StyleButton>
+          <label className="top-label">
+            Confirm Password:<br></br>
+            <input id="confirm-password" className="input-styles"
+            placeholder="Confirm password"
+            name="confirm-password"
+            onChange={handleChange}
+            />
+          </label>
         </form>
         <StyleButtonContainer>
           <Link to="/home"><StyleSignup>Sign Up</StyleSignup></Link>
