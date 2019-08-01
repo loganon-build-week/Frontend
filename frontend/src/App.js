@@ -26,7 +26,7 @@ function App() {
       <Link to="/add">Add App</Link>
 
       <Route exact path="/home" 
-             render={props => users.map(person => <AppCard person={person} /> )} 
+             render={props => users.map(person => <AppCard person={person}  /> )} 
       />
 
       <Route path="/add" 

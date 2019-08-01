@@ -1,13 +1,23 @@
-import React, { useState } from "react" 
+import React, {useState } from "react";
+import axios from "axios";
 
 const MainForm = (props) => {
   // console.log(props)
   const { submitUser, applicationCard } = props 
+
+   //email state
+   const [email, setEmail] = useState("")
+
+   //password state
+   const [password, setPassword] = useState("")
+
   const [person, setPerson] = useState(applicationCard || {id: Date.now(), email: "", password: "", application: "" });
+
+ 
 
   const changeHandler = (event) => {
     setPerson({...person, [event.target.name]: event.target.value})
-    // console.log(person.application);
+    console.log(person);
   }
 
   const handleSubmit = (event) => {
@@ -17,7 +27,41 @@ const MainForm = (props) => {
     setPerson({id: Date.now(), email: "", password: "", application: ""})
     // console.log(person);
   };
-  console.log(person);
+  // console.log(person);
+
+
+  //email API
+  function GenEmailForm() {
+
+    axios.get(`https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/email`)
+    .then ( response => {
+        setEmail(response.data.email)
+    })
+
+    .catch (error => {console.log('error in email API')})
+    // return email
+    // setPerson({email:email})
+    console.log("email API", setPerson)
+  }
+  // console.log("email API", person)
+
+  //finish email API
+
+  //password API
+  function GenPasswordForm() {
+
+    axios.get(`https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/password`)
+    .then ( response => {
+        setPassword(response.data.password)
+    })
+
+    .catch (error => {console.log('error in password API')})
+    return password
+    // console.log("pass API")
+  }
+  // console.log("password API", person)
+  //finish password API
+
 
   return (
     <form onSubmit={handleSubmit} >
@@ -31,7 +75,7 @@ const MainForm = (props) => {
         <option value={false} >Other</option>
       </select>
 
-      <button type="button" onClick={props.email} >Email</button>
+      <button type="button" onClick={GenEmailForm}>Email</button>
       <input 
         placeholder="generated email" 
         type="email"
@@ -40,10 +84,10 @@ const MainForm = (props) => {
         onChange={changeHandler}
       />
 
-      <button type="button">Password</button>
+      <button type="button" onClick={GenPasswordForm}>Password</button>
       <input 
         placeholder="generated password" 
-        value={person.password}
+        value={password}
         name="password"
         onChange={changeHandler}
       />
