@@ -19,7 +19,7 @@ function Landing() {
   `
 
   const StyleH2 = styled.h2`
-  font-size
+  font-size: 2rem; 
   font-color: darkgray; 
   color: #B1B1B1; 
   font-family: "Russo One", sans-serif; 
