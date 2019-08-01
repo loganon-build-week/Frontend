@@ -2,57 +2,61 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 const listOfPasswords=[]
+const listOfEmails=[]
+let count=0
 
 const Form = (props) => {
     const [state, setState] = useState({
+        Id: {count},
         Application: "",
         EmailAddress: "",
         Password: ""
     })
 
-    const [pw, setPw] = useState("");
+
+    const [pw, setPw] = useState("Press Button Again");
+    const [em, setEm] =useState("Press Button Again");
   
 
     useEffect(() => {
         setState(props.adjustedValue)},
         [props.adjustedValue])
     
-    // useEffect(()=>{
-    //     axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
-    //     .then( pw =>{
-    //         setPw(pw.data)
-    //     })
-    //     .catch(error =>{
-    //         return "Error"
-    //     })
-    // },[])
 
 
 
-    const generate = (action) =>{
+    const generatePassword = (action) =>{
         action.preventDefault();
-        axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator/length:12")
+        axios.get("https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/password")
         .then( pw =>{
-            // state.Password = pw.data
-            setPw(pw.data)
+            setPw(pw.data.password)
         })
         .catch(error =>{
             return "Error"
         })
 
         listOfPasswords.push(pw)
-        if(state.Password === listOfPasswords[listOfPasswords.length-1]){
-            listOfPasswords.push(state.Password)
-        }else{
-            state.Password=listOfPasswords[listOfPasswords.length-1]
-        }
+        state.Password=listOfPasswords[listOfPasswords.length-1]
         
-        // document.getElementById('password').value=pw
-        // console.log(state.password)   
+        
+   
     }
-    
-    
-    console.log(listOfPasswords)
+    const generateEmail = (action) =>{
+        action.preventDefault();
+        axios.get("https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/email")
+        .then( em =>{
+            setEm(em.data.email)
+        })
+        .catch(error =>{
+            return "Error"
+        })
+
+        listOfEmails.push(em)
+        state.EmailAddress=listOfEmails[listOfEmails.length-1]
+       
+         
+    }
+
    
 
 
@@ -68,28 +72,36 @@ const Form = (props) => {
         if (props.application === true){
             props.editApplication({...state, [action.target.name]: action.target.value})
             props.applicationToEdit(false)
+            count+=1
         } else{
             props.setList([...props.list, state])
+            count+=1
         }
+
     };
 
- 
+    console.log(state)
 
     return(
         <form>
-                <label>Application: </label>
-                <input type="text" name="Application" value={state.Application} onChange={change}/>
-                
-                <label>Email Address</label>
-                <button>Generate</button>
-                <input type="text" name="EmailAddress" value={state.EmailAddress} onChange={change}/>
+        
 
-                <label>Password</label>
-                <button onClick={generate}>Generate</button>
-                <input type="text" name="Password" id="password" value={state.Password} onChange={change} />
+            <label>Application: </label><br/><br/>
+            <input type="text" name="Application" value={state.Application} onChange={change}/><br/><br/>
+            
 
 
-                <button type="submit"  onClick={click}>Save</button>
+            <button onClick={generateEmail}>Email Address</button><br/><br/>
+            <input type="text" name="EmailAddress" value={state.EmailAddress} onChange={change}/><br/><br/>
+
+
+
+            <button onClick={generatePassword}>Password</button><br/>
+            <input type="text" name="Password" id="password" value={state.Password} onChange={change} /><br/><br/>               
+
+
+            <button type="submit"  onClick={click}>Save</button>
+
 
 
         </form>

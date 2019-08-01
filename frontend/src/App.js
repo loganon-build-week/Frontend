@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import Signup from "./Components/Signup.js"; 
+import { Route, Link } from "react-router-dom"; 
 import MainForm from './components/MainForm.js';
 import AppCard from './components/AppCard'
 
