@@ -4,6 +4,7 @@ import Signup from "./Components/Signup.js";
 import { Route, Link } from "react-router-dom"; 
 import MainForm from './components/MainForm.js';
 import AppCard from './components/AppCard'
+import DataToPass from './Components/DataToPassToForm';
 
 // import DataToPass from "./Components/DataToPassToForm.js";
 // import Login from "./components/Login"; 
@@ -23,10 +24,7 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <MainForm submitUser={addAppCard} />
-      {users.map(person => <AppCard person={person} />)}
-    </div>
+    <DataToPass/>
   );
 
 
