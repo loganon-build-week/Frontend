@@ -3,16 +3,19 @@ import axios from "axios";
 
 const listOfPasswords=[]
 const listOfEmails=[]
+let count=0
 
 const Form = (props) => {
     const [state, setState] = useState({
+        Id: {count},
         Application: "",
         EmailAddress: "",
         Password: ""
     })
 
-    const [pw, setPw] = useState("");
-    const [em, setEm] =useState("");
+
+    const [pw, setPw] = useState("Press Button Again");
+    const [em, setEm] =useState("Press Button Again");
   
 
     useEffect(() => {
@@ -26,7 +29,6 @@ const Form = (props) => {
         action.preventDefault();
         axios.get("https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/password")
         .then( pw =>{
-            // state.Password = pw.data
             setPw(pw.data.password)
         })
         .catch(error =>{
@@ -34,11 +36,8 @@ const Form = (props) => {
         })
 
         listOfPasswords.push(pw)
-        if(state.Password === listOfPasswords[listOfPasswords.length-1]){
-            listOfPasswords.push(state.Password)
-        }else{
-            state.Password=listOfPasswords[listOfPasswords.length-1]
-        }
+        state.Password=listOfPasswords[listOfPasswords.length-1]
+        
         
    
     }
@@ -46,8 +45,6 @@ const Form = (props) => {
         action.preventDefault();
         axios.get("https://cors-anywhere.herokuapp.com/https://email-pass-gen.herokuapp.com/email")
         .then( em =>{
-            console.log(em.data.email)
-            // state.Password = pw.data
             setEm(em.data.email)
         })
         .catch(error =>{
@@ -55,11 +52,8 @@ const Form = (props) => {
         })
 
         listOfEmails.push(em)
-        if(state.EmailAddress === listOfEmails[listOfEmails.length-1]){
-            listOfEmails.push(state.EmailAddress)
-        }else{
-            state.EmailAddress=listOfEmails[listOfEmails.length-1]
-        }
+        state.EmailAddress=listOfEmails[listOfEmails.length-1]
+       
          
     }
 
@@ -78,28 +72,36 @@ const Form = (props) => {
         if (props.application === true){
             props.editApplication({...state, [action.target.name]: action.target.value})
             props.applicationToEdit(false)
+            count+=1
         } else{
             props.setList([...props.list, state])
+            count+=1
         }
+
     };
 
- 
+    console.log(state)
 
     return(
         <form>
-                <label>Application: </label>
-                <input type="text" name="Application" value={state.Application} onChange={change}/>
-                
-                <label>Email Address</label>
-                <button onClick={generateEmail}>Generate</button>
-                <input type="text" name="EmailAddress" value={state.EmailAddress} onChange={change}/>
+        
 
-                <label>Password</label>
-                <button onClick={generatePassword}>Generate</button>
-                <input type="text" name="Password" id="password" value={state.Password} onChange={change} />
+            <label>Application: </label><br/><br/>
+            <input type="text" name="Application" value={state.Application} onChange={change}/><br/><br/>
+            
 
 
-                <button type="submit"  onClick={click}>Save</button>
+            <button onClick={generateEmail}>Email Address</button><br/><br/>
+            <input type="text" name="EmailAddress" value={state.EmailAddress} onChange={change}/><br/><br/>
+
+
+
+            <button onClick={generatePassword}>Password</button><br/>
+            <input type="text" name="Password" id="password" value={state.Password} onChange={change} /><br/><br/>               
+
+
+            <button type="submit"  onClick={click}>Save</button>
+
 
 
         </form>
