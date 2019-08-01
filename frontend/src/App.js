@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <MainForm submitUser={addAppCard} />
       {users.map(person => <AppCard person={person} />)}
-      </div>
+    </div>
   );
 
 
