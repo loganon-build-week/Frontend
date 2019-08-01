@@ -105,7 +105,7 @@ export default function Signup() {
     
   }, []) 
 
-  const  [ inputValue, setInputValue ] = useState({ userkey: "", password: "" }); 
+  const  [ inputValue, setInputValue ] = useState({ userkey: "", password: "", confirmPassword: ""}); 
 
   function handleChange(event) {
     const newInput = { ...inputValue, [event.target.name]: event.target.value }; 
@@ -171,8 +171,9 @@ export default function Signup() {
             Confirm Password:<br></br>
             <input id="confirm-password" className="input-styles"
             placeholder="Confirm password"
-            name="confirm-password"
+            name="confirmPassword"
             onChange={handleChange}
+            value={inputValue.confirmPassword}
             />
           </label>
         </form>
