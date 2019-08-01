@@ -35,7 +35,7 @@ function Landing() {
   `
 
   const StyleLogin = styled.button`
-  width: 20%; 
+  width: 220px; 
   height: 30px; 
   background: yellow; 
   text-align: center; 
@@ -47,7 +47,7 @@ function Landing() {
   `
 
   const StyleSignup = styled.button`
-  width: 20%; 
+  width: 220px; 
   height: 30px; 
   background: #B1B1B1; 
   text-align: center; 
@@ -57,6 +57,7 @@ function Landing() {
   font-size: 1rem;  
   margin-top: 2rem;
   `
+
   const  [ inputValue, setInputValue ] = useState({ userkey: "", password: "" }); 
 
   function handleChange(event) {
@@ -92,8 +93,8 @@ function Landing() {
           </label>
         </form>
         <StyleButtonContainer>
-          <StyleLogin>Login</StyleLogin>
-          <StyleSignup>Sign Up</StyleSignup>
+          <Link to="/home" ><StyleLogin>Login</StyleLogin></Link>
+          <Link to="/signup"><StyleSignup>Sign Up</StyleSignup></Link>
         </StyleButtonContainer>
       </div>
   )
