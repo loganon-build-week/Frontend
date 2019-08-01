@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"; 
 import logo from "../images/LoganonLogoRoundLighter.png"; 
 import styled from "styled-components"; 
-<<<<<<< HEAD
-import {Link } from "react-router-dom"; 
-=======
 import { Link } from "react-router-dom"; 
->>>>>>> origin/master
 
 export default function Signup() {
 

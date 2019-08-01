@@ -16,7 +16,7 @@ const Application = (props) =>{
     height: 30%; 
     background: white; 
     color: black;
-    border: 1px solid #ffe100; 
+    border: 3px solid #ffe100; 
     border-radius: 2%; 
     text-align: left;
     font-weight: 600; 
