@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import logo from "../images/LoganonLogoRoundLighter.png";
 import styled from "styled-components";
 import { Route, Link } from "react-router-dom";
@@ -19,7 +19,7 @@ function Landing() {
   `
 
   const StyleH2 = styled.h2`
-  font-size: 2rem; 
+  font-size
   font-color: darkgray; 
   color: #B1B1B1; 
   font-family: "Russo One", sans-serif; 
