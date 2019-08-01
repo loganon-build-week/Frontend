@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Form from './Form.js.js';
+import Form from './Form.js';
 import Application from "./ListOfApps.js";
 
 
