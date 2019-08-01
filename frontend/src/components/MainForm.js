@@ -1,6 +1,7 @@
 import React, { useState } from "react" 
 
 const MainForm = (props) => {
+  // console.log(props)
   const { submitUser } = props 
   const [person, setPerson] = useState({id: Date.now(), email: "", password: "", application: "" });
 
@@ -13,7 +14,7 @@ const MainForm = (props) => {
     event.preventDefault();
     // console.log("within handleSubmit", person);
     submitUser(person);
-    setPerson({id: null, email: "", password: "", application: ""})
+    setPerson({id: Date.now(), email: "", password: "", application: ""})
     // console.log(person);
   };
   console.log(person);
@@ -22,7 +23,7 @@ const MainForm = (props) => {
     <form onSubmit={handleSubmit} >
 
       <select required name="application" onChange={changeHandler}> 
-        <option value="" hidden>Select an App</option>
+        <option value="" hidden default>Select an App</option>
         <option value="Twitter">Twitter </option>
         <option value="Slack">Slack</option>
         <option value="Netflix">Netflix</option>
@@ -47,7 +48,7 @@ const MainForm = (props) => {
         onChange={changeHandler}
       />
 
-      <button type="submit">Submit</button>
+      <button type="submit">Add App Card</button>
 
     </form>
   )
@@ -82,3 +83,7 @@ export default MainForm;
 //     <div>Login</div>
 //   )
 // } 
+
+// `https://email-pass-gen.herokuapp.com/password`
+
+// `https://email-pass-gen.herokuapp.com/email`
