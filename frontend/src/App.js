@@ -4,7 +4,6 @@ import { Route, Link } from "react-router-dom";
 import MainForm from './components/MainForm.js';
 import AppCard from './components/AppCard'
 import DataToPass from './components/DataToPassToForm';
-
 import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";  
 
@@ -22,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <Route path="/login" component={Login} />
+      <Route exact path="/" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/home" component={DataToPass} />
       {/* <MainForm submitUser={addAppCard} /> 
