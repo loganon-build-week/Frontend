@@ -3,6 +3,12 @@ import './App.css';
 import MainForm from './components/MainForm.js';
 import AppCard from './components/AppCard'
 
+import DataToPass from "./Components/DataToPassToForm.js";
+import Login from "./components/Login"; 
+import Signup from "./components/Signup"; 
+import { Route, Link } from "react-router-dom"; 
+
+
 
 function App() {
   const [users, setUsers] = useState([
@@ -18,8 +24,11 @@ function App() {
     <div className="App">
       <MainForm submitUser={addPerson} />
       {users.map(person => <AppCard person={person} />)}
-    </div>
+      </div>
   );
+
+
+
 }
 
 export default App;
