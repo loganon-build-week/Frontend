@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #3A3A3A;
+  color: white;
 }
 
 code {
@@ -21,7 +22,6 @@ code {
 }
 
 .input-styles {
-  margin-top: 2rem;
   text-decoration: none; 
   border-radius: 5px; 
   width: 400px; 
@@ -29,8 +29,13 @@ code {
   margin: 0 auto;   
   font-size: 1.1rem; 
   border: 1px solid white; 
+  margin-top: .75rem;
 }
 
-#password {
-  margin-top: 30px; 
+.top-label {
+  font-family: Arial, Helvetica, sans-serif; 
+  font-weight: 700; 
+  color: #b1b1b1; 
+  margin-top: 1.5rem; 
 }
+

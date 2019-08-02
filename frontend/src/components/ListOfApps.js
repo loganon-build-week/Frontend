@@ -1,54 +1,73 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {Card, Button} from 'semantic-ui-react';
+import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
-// const listOfPasswords=[]
 
 const Application = (props) =>{
 
+    console.log(props)
 
-    // const [pw, setPw] = useState([]);
+        // text-align: center; 
+        //  
+    const StyleCard = styled.div`
+    width: 25%; 
+    height: 30%; 
+    background: white; 
+    color: black;
+    border: 3px solid #ffe100; 
+    border-radius: 2%; 
+    text-align: left;
+    font-weight: 600; 
+    font-size: 1rem; 
+    margin-left: 1rem;
+    margin-top: 2rem;
 
-    // useEffect(()=>{
-    //     axios.get("http://www.sethcardoza.com/api/rest/tools/random_password_generator")
-    //     .then( pw =>{
-    //         console.log(pw.data)
-    //         setPw(pw.data)
-    //     })
-    //     .catch(error =>{
-    //         return "Error"
-    //     })
-    // },[props])
-
-    // listOfPasswords.push(pw)
-    // console.log(listOfPasswords)
-    // console.log(pw)
+    `
+    const StyleAnswer = styled.p`
+    color: grey;
+    font-size: 1rem; 
+    margin-top: 1rem;  
+    `
     
+    const StyleFlex = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    `
 
     return (
-        <div>
+        <StyleFlex>
             {props.props.map(app =>{
                 console.log(app.Password)
                 
                 return(
-                    <Card.Group>
+                    <StyleCard /*onClick={}*/>
                         
-                        <Card key={app.Application}>
-                             <Card.Header>Application: {app.Application}</Card.Header>
-                             <Card.Content>Email Address: {app.EmailAddress}</Card.Content> 
-                             <Card.Content>Password: {app.Password}</Card.Content> 
-                             <Button type="submit" onClick={() =>{
-                                 props.setAdjustedValue(app);
-                                 props.applicationToEdit(true)
-                             }}>Edit</Button>
-                        </Card>
+                            <Card.Group>
 
-                    </Card.Group>
-                    
+                                <Card key={app.Application}>
+                                    <Card.Header>Application: <StyleAnswer>{app.Application}</StyleAnswer></Card.Header>
+                                    <Card.Content>Email Address: <StyleAnswer>{app.EmailAddress}</StyleAnswer></Card.Content> 
+                                    <Card.Content>Password: <StyleAnswer>{app.Password}</StyleAnswer> </Card.Content> 
+                                    <Button type="submit" onClick={() =>{
+                                        props.setAdjustedValue(app);
+                                        props.applicationToEdit(true)
+                                    }}>Edit</Button>
+                                </Card>
+
+
+
+                            </Card.Group>
+                        
+                    </StyleCard>
                 )
 
             })}
-        </div>
+        </StyleFlex>
     )
 }
 
