@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
+import { Route, Link } from "react-router-dom"; 
 import MainForm from './components/MainForm.js';
 import AppCard from './components/AppCard'
 
+
 // import DataToPass from "./Components/DataToPassToForm.js";
-// import Login from "./components/Login"; 
+
+import Login from "./components/Login"; 
+
 // import Signup from "./components/Signup"; 
-import { Route, Link } from "react-router-dom"; 
+
+
+
 
 
 
@@ -22,8 +28,13 @@ function App() {
 
   return (
     <div className="App">
-      <Link to="/home">My Apps</Link>  
-      <Link to="/add">Add App</Link>
+
+
+      <Link to="/home" className="Nav">My Apps</Link>
+
+      <Link to="/add" className="Nav">Add App</Link>
+
+      <Route exact path="/" component={Login} />
 
       <Route exact path="/home" 
              render={props => users.map(person => <AppCard person={person}  /> )} 
@@ -44,7 +55,6 @@ function App() {
                     <h1>{card.application}</h1>
                     <h2>Email Address: {card.email}</h2>
                     <h2>Password: {card.password}</h2>
-                    <button>Edit</button>
                   </div>
                 )
              }}

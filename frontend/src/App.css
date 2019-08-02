@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 0 auto;
+
 }
 
 .App-logo {
@@ -31,3 +33,20 @@
     transform: rotate(360deg);
   }
 }
+
+.Nav {
+  text-decoration: none;
+  margin: 0px 10px;
+  padding: 1px;
+  border-radius: 8px;
+  font-size: 22px;
+  background: linear-gradient(109.1deg, #939290 0%, rgb(109, 106, 106) 100%);
+  box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
+  color: #ffe100;
+
+}
+
+
+
+
+
